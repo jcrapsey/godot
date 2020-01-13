@@ -5,8 +5,8 @@
 /*                           GODOT ENGINE                                */
 /*                      https://godotengine.org                          */
 /*************************************************************************/
-/* Copyright (c) 2007-2019 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2019 Godot Engine contributors (cf. AUTHORS.md)    */
+/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
 /*                                                                       */
 /* Permission is hereby granted, free of charge, to any person obtaining */
 /* a copy of this software and associated documentation files (the       */
@@ -121,7 +121,7 @@ bool GroupDialog::_can_edit(Node *p_node, String p_group) {
 }
 
 void GroupDialog::_add_pressed() {
-	TreeItem *selected = nodes_to_add->get_selected();
+	TreeItem *selected = nodes_to_add->get_next_selected(NULL);
 
 	if (!selected) {
 		return;
@@ -150,7 +150,7 @@ void GroupDialog::_add_pressed() {
 }
 
 void GroupDialog::_removed_pressed() {
-	TreeItem *selected = nodes_to_remove->get_selected();
+	TreeItem *selected = nodes_to_remove->get_next_selected(NULL);
 
 	if (!selected) {
 		return;
@@ -215,7 +215,7 @@ void GroupDialog::_group_renamed() {
 		return;
 	}
 
-	String name = renamed_group->get_text(0).strip_edges();
+	const String name = renamed_group->get_text(0).strip_edges();
 	for (TreeItem *E = groups_root->get_children(); E; E = E->get_next()) {
 		if (E != renamed_group && E->get_text(0) == name) {
 			renamed_group->set_text(0, selected_group);
@@ -231,6 +231,8 @@ void GroupDialog::_group_renamed() {
 		error->popup_centered();
 		return;
 	}
+
+	renamed_group->set_text(0, name); // Spaces trimmed.
 
 	undo_redo->create_action(TTR("Rename Group"));
 
@@ -254,8 +256,8 @@ void GroupDialog::_group_renamed() {
 		undo_redo->add_undo_method(this, "_delete_group_item", selected_group);
 	}
 
-	undo_redo->add_do_method(this, "_rename_group_item", selected_group, renamed_group->get_text(0));
-	undo_redo->add_undo_method(this, "_rename_group_item", renamed_group->get_text(0), selected_group);
+	undo_redo->add_do_method(this, "_rename_group_item", selected_group, name);
+	undo_redo->add_undo_method(this, "_rename_group_item", name, selected_group);
 	undo_redo->add_do_method(this, "_group_selected");
 	undo_redo->add_undo_method(this, "_group_selected");
 	undo_redo->add_do_method(this, "emit_signal", "group_edited");
@@ -550,8 +552,8 @@ void GroupsEditor::_add_group(const String &p_group) {
 	if (!node)
 		return;
 
-	String name = group_name->get_text();
-	if (name.strip_edges() == "")
+	const String name = group_name->get_text().strip_edges();
+	if (name.empty())
 		return;
 
 	if (node->is_in_group(name))
