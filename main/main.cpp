@@ -66,6 +66,8 @@
 #include "scene/resources/packed_scene.h"
 #include "servers/arvr_server.h"
 #include "servers/audio_server.h"
+#include "servers/hilbert_hotel_server.h"
+#include "servers/hilbert_hotel/hilbert_hotel.h"
 #include "servers/physics_2d_server.h"
 #include "servers/physics_server.h"
 #include "servers/register_server_types.h"
@@ -101,6 +103,9 @@ static AudioServer *audio_server = NULL;
 static ARVRServer *arvr_server = NULL;
 static PhysicsServer *physics_server = NULL;
 static Physics2DServer *physics_2d_server = NULL;
+static HilbertHotelServer *hilbert_hotel_server = NULL;
+static HilbertHotel *hilbert_hotel = NULL;
+
 // We error out if setup2() doesn't turn this true
 static bool _start_success = false;
 
@@ -1112,6 +1117,12 @@ Error Main::setup2(Thread::ID p_main_tid_override) {
 	// also init our arvr_server from here
 	arvr_server = memnew(ARVRServer);
 
+	// hehe hilbert hotel
+	hilbert_hotel = memnew(HilbertHotel);
+	hilbert_hotel->init();
+
+	hilbert_hotel_server = memnew(HilbertHotelServer);
+
 	register_core_singletons();
 
 	MAIN_PRINT("Main: Setup Logo");
@@ -2022,6 +2033,14 @@ void Main::cleanup() {
 	if (arvr_server) {
 		// cleanup now before we pull the rug from underneath...
 		memdelete(arvr_server);
+	}
+
+	if (hilbert_hotel_server) {
+		memdelete(hilbert_hotel_server);
+	}
+
+	if (hilbert_hotel) {
+		memdelete(hilbert_hotel);
 	}
 
 	ImageLoader::cleanup();

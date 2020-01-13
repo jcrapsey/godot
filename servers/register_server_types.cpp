@@ -32,6 +32,7 @@
 #include "core/engine.h"
 #include "core/project_settings.h"
 
+#include "hilbert_hotel_server.h"
 #include "arvr/arvr_interface.h"
 #include "arvr/arvr_positional_tracker.h"
 #include "arvr_server.h"
@@ -114,10 +115,15 @@ void register_server_types() {
 	ClassDB::register_virtual_class<PhysicsServer>();
 	ClassDB::register_virtual_class<Physics2DServer>();
 	ClassDB::register_class<ARVRServer>();
+	// Hilbert Hotel
+	ClassDB::register_class<HilbertHotelServer>();
+
 
 	shader_types = memnew(ShaderTypes);
 
 	ClassDB::register_virtual_class<ARVRInterface>();
+	ClassDB::register_virtual_class<HilbertHotel>();
+
 	ClassDB::register_class<ARVRPositionalTracker>();
 
 	ClassDB::register_virtual_class<AudioStream>();
@@ -208,4 +214,5 @@ void register_server_singletons() {
 	Engine::get_singleton()->add_singleton(Engine::Singleton("PhysicsServer", PhysicsServer::get_singleton()));
 	Engine::get_singleton()->add_singleton(Engine::Singleton("Physics2DServer", Physics2DServer::get_singleton()));
 	Engine::get_singleton()->add_singleton(Engine::Singleton("ARVRServer", ARVRServer::get_singleton()));
+	Engine::get_singleton()->add_singleton(Engine::Singleton("HilbertHotelServer", HilbertHotelServer::get_singleton()));
 }
