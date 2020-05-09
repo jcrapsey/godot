@@ -1,19 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<class name="LineEdit" inherits="Control" category="Core" version="3.2">
+<class name="LineEdit" inherits="Control" version="4.0">
 	<brief_description>
 		Control that provides single-line string editing.
 	</brief_description>
 	<description>
-		LineEdit provides a single-line string editor, used for text fields. It features many built-in shortcuts which will always be available:
-		- Ctrl + C: Copy
-		- Ctrl + X: Cut
-		- Ctrl + V or Ctrl + Y: Paste/"yank"
-		- Ctrl + Z: Undo
-		- Ctrl + Shift + Z: Redo
-		- Ctrl + U: Delete text from the cursor position to the beginning of the line
-		- Ctrl + K: Delete text from the cursor position to the end of the line
-		- Ctrl + A: Select all text
-		- Up/Down arrow: Move the cursor to the beginning/end of the line
+		LineEdit provides a single-line string editor, used for text fields.
+		It features many built-in shortcuts which will always be available ([kbd]Ctrl[/kbd] here maps to [kbd]Cmd[/kbd] on macOS):
+		- [kbd]Ctrl + C[/kbd]: Copy
+		- [kbd]Ctrl + X[/kbd]: Cut
+		- [kbd]Ctrl + V[/kbd] or [kbd]Ctrl + Y[/kbd]: Paste/"yank"
+		- [kbd]Ctrl + Z[/kbd]: Undo
+		- [kbd]Ctrl + Shift + Z[/kbd]: Redo
+		- [kbd]Ctrl + U[/kbd]: Delete text from the cursor position to the beginning of the line
+		- [kbd]Ctrl + K[/kbd]: Delete text from the cursor position to the end of the line
+		- [kbd]Ctrl + A[/kbd]: Select all text
+		- [kbd]Up Arrow[/kbd]/[kbd]Down Arrow[/kbd]: Move the cursor to the beginning/end of the line
+		On macOS, some extra keyboard shortcuts are available:
+		- [kbd]Ctrl + F[/kbd]: Same as [kbd]Right Arrow[/kbd], move the cursor one character right
+		- [kbd]Ctrl + B[/kbd]: Same as [kbd]Left Arrow[/kbd], move the cursor one character left
+		- [kbd]Ctrl + P[/kbd]: Same as [kbd]Up Arrow[/kbd], move the cursor to the previous line
+		- [kbd]Ctrl + N[/kbd]: Same as [kbd]Down Arrow[/kbd], move the cursor to the next line
+		- [kbd]Ctrl + D[/kbd]: Same as [kbd]Delete[/kbd], delete the character on the right side of cursor
+		- [kbd]Ctrl + H[/kbd]: Same as [kbd]Backspace[/kbd], delete the character on the left side of the cursor
+		- [kbd]Ctrl + A[/kbd]: Same as [kbd]Home[/kbd], move the cursor to the beginning of the line
+		- [kbd]Ctrl + E[/kbd]: Same as [kbd]End[/kbd], move the cursor to the end of the line
+		- [kbd]Cmd + Left Arrow[/kbd]: Same as [kbd]Home[/kbd], move the cursor to the beginning of the line
+		- [kbd]Cmd + Right Arrow[/kbd]: Same as [kbd]End[/kbd], move the cursor to the end of the line
 	</description>
 	<tutorials>
 	</tutorials>
@@ -68,9 +80,9 @@
 				Selects characters inside [LineEdit] between [code]from[/code] and [code]to[/code]. By default, [code]from[/code] is at the beginning and [code]to[/code] at the end.
 				[codeblock]
 				text = "Welcome"
-				select()     # Will select "Welcome"
-				select(4)    # Will select "ome"
-				select(2, 5) # Will select "lco"
+				select() # Will select "Welcome".
+				select(4) # Will select "ome".
+				select(2, 5) # Will select "lco".
 				[/codeblock]
 			</description>
 		</method>
@@ -118,7 +130,7 @@
 		<member name="placeholder_text" type="String" setter="set_placeholder" getter="get_placeholder" default="&quot;&quot;">
 			Text shown when the [LineEdit] is empty. It is [b]not[/b] the [LineEdit]'s default value (see [member text]).
 		</member>
-		<member name="right_icon" type="Texture" setter="set_right_icon" getter="get_right_icon">
+		<member name="right_icon" type="Texture2D" setter="set_right_icon" getter="get_right_icon">
 			Sets the icon that will appear in the right end of the [LineEdit] if there's no [member text], or always, if [member clear_button_enabled] is set to [code]false[/code].
 		</member>
 		<member name="secret" type="bool" setter="set_secret" getter="is_secret" default="false">
@@ -135,6 +147,7 @@
 		</member>
 		<member name="text" type="String" setter="set_text" getter="get_text" default="&quot;&quot;">
 			String value of the [LineEdit].
+			[b]Note:[/b] Changing text using this property won't emit the [signal text_changed] signal.
 		</member>
 	</members>
 	<signals>
@@ -198,7 +211,7 @@
 		</constant>
 	</constants>
 	<theme_items>
-		<theme_item name="clear" type="Texture">
+		<theme_item name="clear" type="Texture2D">
 			Texture for the clear button. See [member clear_button_enabled].
 		</theme_item>
 		<theme_item name="clear_button_color" type="Color" default="Color( 0.88, 0.88, 0.88, 1 )">
@@ -226,7 +239,7 @@
 			Font color when editing is disabled.
 		</theme_item>
 		<theme_item name="minimum_spaces" type="int" default="12">
-			Minimum horizontal space for the text (not counting the clear button and content margins).
+			Minimum horizontal space for the text (not counting the clear button and content margins). This value is measured in count of space characters (i.e. this amount of space characters can be displayed without scrolling).
 		</theme_item>
 		<theme_item name="normal" type="StyleBox">
 			Default background for the [LineEdit].

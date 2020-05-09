@@ -47,7 +47,7 @@ void *zipio_open(void *data, const char *p_fname, int mode) {
 	}
 
 	if (!f)
-		return NULL;
+		return nullptr;
 
 	return data;
 }
@@ -97,7 +97,8 @@ int zipio_close(voidpf opaque, voidpf stream) {
 	FileAccess *&f = *(FileAccess **)opaque;
 	if (f) {
 		f->close();
-		f = NULL;
+		memdelete(f);
+		f = nullptr;
 	}
 	return 0;
 }

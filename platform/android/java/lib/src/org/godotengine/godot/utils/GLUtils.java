@@ -31,6 +31,7 @@
 package org.godotengine.godot.utils;
 
 import android.util.Log;
+
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLDisplay;
@@ -44,7 +45,6 @@ public class GLUtils {
 
 	public static final boolean DEBUG = false;
 
-	public static boolean use_gl3 = false;
 	public static boolean use_32 = false;
 	public static boolean use_debug_opengl = false;
 

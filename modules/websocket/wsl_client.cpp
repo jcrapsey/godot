@@ -90,6 +90,7 @@ void WSLClient::_do_handshake() {
 				data->is_server = false;
 				data->id = 1;
 				_peer->make_context(data, _in_buf_size, _in_pkt_size, _out_buf_size, _out_pkt_size);
+				_peer->set_no_delay(true);
 				_on_connect(protocol);
 				break;
 			}
@@ -252,7 +253,7 @@ void WSLClient::poll() {
 					}
 					_connection = ssl;
 				} else {
-					ssl = static_cast<Ref<StreamPeerSSL> >(_connection);
+					ssl = static_cast<Ref<StreamPeerSSL>>(_connection);
 					ERR_FAIL_COND(ssl.is_null()); // Bug?
 					ssl->poll();
 				}
@@ -278,7 +279,7 @@ void WSLClient::poll() {
 
 Ref<WebSocketPeer> WSLClient::get_peer(int p_peer_id) const {
 
-	ERR_FAIL_COND_V(p_peer_id != 1, NULL);
+	ERR_FAIL_COND_V(p_peer_id != 1, nullptr);
 
 	return _peer;
 }
@@ -297,7 +298,7 @@ NetworkedMultiplayerPeer::ConnectionStatus WSLClient::get_connection_status() co
 void WSLClient::disconnect_from_host(int p_code, String p_reason) {
 
 	_peer->close(p_code, p_reason);
-	_connection = Ref<StreamPeer>(NULL);
+	_connection = Ref<StreamPeer>(nullptr);
 	_tcp = Ref<StreamPeerTCP>(memnew(StreamPeerTCP));
 
 	_key = "";

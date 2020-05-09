@@ -43,11 +43,16 @@
 #define WGL_CONTEXT_PROFILE_MASK_ARB 0x9126
 #define WGL_CONTEXT_CORE_PROFILE_BIT_ARB 0x00000001
 
+#if defined(__GNUC__)
+// Workaround GCC warning from -Wcast-function-type.
+#define wglGetProcAddress (void *)wglGetProcAddress
+#endif
+
 typedef HGLRC(APIENTRY *PFNWGLCREATECONTEXTATTRIBSARBPROC)(HDC, HGLRC, const int *);
 
 void ContextGL_Windows::release_current() {
 
-	wglMakeCurrent(hDC, NULL);
+	wglMakeCurrent(hDC, nullptr);
 }
 
 void ContextGL_Windows::make_current() {
@@ -89,7 +94,7 @@ void ContextGL_Windows::swap_buffers() {
 	if (use_vsync) {
 		bool vsync_via_compositor_now = should_vsync_via_compositor();
 
-		if (vsync_via_compositor_now) {
+		if (vsync_via_compositor_now && wglGetSwapIntervalEXT() == 0) {
 			DwmFlush();
 		}
 
@@ -180,10 +185,10 @@ Error ContextGL_Windows::initialize() {
 			0
 		}; //zero indicates the end of the array
 
-		PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = NULL; //pointer to the method
+		PFNWGLCREATECONTEXTATTRIBSARBPROC wglCreateContextAttribsARB = nullptr; //pointer to the method
 		wglCreateContextAttribsARB = (PFNWGLCREATECONTEXTATTRIBSARBPROC)wglGetProcAddress("wglCreateContextAttribsARB");
 
-		if (wglCreateContextAttribsARB == NULL) //OpenGL 3.0 is not supported
+		if (wglCreateContextAttribsARB == nullptr) //OpenGL 3.0 is not supported
 		{
 			wglDeleteContext(hRC);
 			return ERR_CANT_CREATE;
@@ -194,7 +199,7 @@ Error ContextGL_Windows::initialize() {
 			wglDeleteContext(hRC);
 			return ERR_CANT_CREATE; // Return false
 		}
-		wglMakeCurrent(hDC, NULL);
+		wglMakeCurrent(hDC, nullptr);
 		wglDeleteContext(hRC);
 		hRC = new_hRC;
 
@@ -205,6 +210,7 @@ Error ContextGL_Windows::initialize() {
 	}
 
 	wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC)wglGetProcAddress("wglSwapIntervalEXT");
+	wglGetSwapIntervalEXT = (PFNWGLGETSWAPINTERVALEXTPROC)wglGetProcAddress("wglGetSwapIntervalEXT");
 	//glWrapperInit(wrapper_get_proc_address);
 
 	return OK;

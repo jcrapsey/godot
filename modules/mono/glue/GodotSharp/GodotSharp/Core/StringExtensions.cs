@@ -12,7 +12,7 @@ namespace Godot
     {
         private static int GetSliceCount(this string instance, string splitter)
         {
-            if (instance.Empty() || splitter.Empty())
+            if (string.IsNullOrEmpty(instance) || string.IsNullOrEmpty(splitter))
                 return 0;
 
             int pos = 0;
@@ -29,7 +29,7 @@ namespace Godot
 
         private static string GetSliceCharacter(this string instance, char splitter, int slice)
         {
-            if (!instance.Empty() && slice >= 0)
+            if (!string.IsNullOrEmpty(instance) && slice >= 0)
             {
                 int i = 0;
                 int prev = 0;
@@ -237,10 +237,10 @@ namespace Godot
         // </summary>
         public static int CompareTo(this string instance, string to, bool caseSensitive = true)
         {
-            if (instance.Empty())
-                return to.Empty() ? 0 : -1;
+            if (string.IsNullOrEmpty(instance))
+                return string.IsNullOrEmpty(to) ? 0 : -1;
 
-            if (to.Empty())
+            if (string.IsNullOrEmpty(to))
                 return 1;
 
             int instanceIndex = 0;
@@ -264,7 +264,8 @@ namespace Godot
                     instanceIndex++;
                     toIndex++;
                 }
-            } else
+            }
+            else
             {
                 while (true)
                 {
@@ -283,14 +284,6 @@ namespace Godot
                     toIndex++;
                 }
             }
-        }
-
-        // <summary>
-        // Return true if the string is empty.
-        // </summary>
-        public static bool Empty(this string instance)
-        {
-            return string.IsNullOrEmpty(instance);
         }
 
         // <summary>
@@ -474,7 +467,7 @@ namespace Godot
             int source = 0;
             int target = 0;
 
-            while (instance[source] != 0 && text[target] != 0)
+            while (source < len && target < text.Length)
             {
                 bool match;
 
@@ -491,7 +484,7 @@ namespace Godot
                 if (match)
                 {
                     source++;
-                    if (instance[source] == 0)
+                    if (source >= len)
                         return true;
                 }
 
@@ -980,7 +973,7 @@ namespace Godot
         }
 
         // <summary>
-        // Convert the String (which is a character array) to PoolByteArray (which is an array of bytes). The conversion is speeded up in comparison to to_utf8() with the assumption that all the characters the String contains are only ASCII characters.
+        // Convert the String (which is a character array) to PackedByteArray (which is an array of bytes). The conversion is speeded up in comparison to to_utf8() with the assumption that all the characters the String contains are only ASCII characters.
         // </summary>
         public static byte[] ToAscii(this string instance)
         {
@@ -1020,7 +1013,7 @@ namespace Godot
         }
 
         // <summary>
-        // Convert the String (which is an array of characters) to PoolByteArray (which is an array of bytes). The conversion is a bit slower than to_ascii(), but supports all UTF-8 characters. Therefore, you should prefer this function over to_ascii().
+        // Convert the String (which is an array of characters) to PackedByteArray (which is an array of bytes). The conversion is a bit slower than to_ascii(), but supports all UTF-8 characters. Therefore, you should prefer this function over to_ascii().
         // </summary>
         public static byte[] ToUTF8(this string instance)
         {

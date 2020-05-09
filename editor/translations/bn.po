@@ -7,12 +7,13 @@
 # Tahmid Karim <tahmidk15@gmail.com>, 2016.
 # Tawhid H. <Tawhidk757@yahoo.com>, 2019.
 # Hasibul Hasan <hasibeng78@gmail.com>, 2019.
+# Oymate <dhruboadittya96@gmail.com>, 2020.
 msgid ""
 msgstr ""
 "Project-Id-Version: Godot Engine editor\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2019-12-13 09:38+0000\n"
-"Last-Translator: Hasibul Hasan <hasibeng78@gmail.com>\n"
+"PO-Revision-Date: 2020-05-04 15:11+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Bengali <https://hosted.weblate.org/projects/godot-engine/"
 "godot/bn/>\n"
 "Language: bn\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 3.10-dev\n"
+"X-Generator: Weblate 4.1-dev\n"
 
 #: core/math/expression.cpp modules/gdscript/gdscript_functions.cpp
 #: modules/visual_script/visual_script_builtin_funcs.cpp
@@ -29,7 +30,7 @@ msgstr "অবৈধ প্রকার রূপান্তর করার �
 
 #: core/math/expression.cpp modules/gdscript/gdscript_functions.cpp
 msgid "Expected a string of length 1 (a character)."
-msgstr ""
+msgstr "১ (একটি অক্ষর) দৈর্ঘ্য এর স্ট্রিং প্রত্যাশিত।"
 
 #: core/math/expression.cpp modules/gdscript/gdscript_functions.cpp
 #: modules/mono/glue/gd_glue.cpp
@@ -733,8 +734,9 @@ msgid "Line Number:"
 msgstr "লাইন নাম্বার:"
 
 #: editor/code_editor.cpp
-msgid "Replaced %d occurrence(s)."
-msgstr "%d সংখ্যক সংঘটন প্রতিস্থাপিত হয়েছে  ।"
+#, fuzzy
+msgid "%d replaced."
+msgstr "প্রতিস্থাপন..."
 
 #: editor/code_editor.cpp editor/editor_help.cpp
 msgid "%d match."
@@ -1536,7 +1538,7 @@ msgstr "Autoload স্থানান্তর করুন"
 msgid "Remove Autoload"
 msgstr "Autoload অপসারণ করুন"
 
-#: editor/editor_autoload_settings.cpp
+#: editor/editor_autoload_settings.cpp editor/editor_plugin_settings.cpp
 msgid "Enable"
 msgstr "সক্রিয় করুন"
 
@@ -1581,6 +1583,10 @@ msgstr "নাম"
 #: editor/editor_autoload_settings.cpp
 msgid "Singleton"
 msgstr "একক-বস্তু/সিঙ্গেলটোন"
+
+#: editor/editor_data.cpp editor/inspector_dock.cpp
+msgid "Paste Params"
+msgstr "মানসমূহ প্রতিলেপন/পেস্ট করুন"
 
 #: editor/editor_data.cpp
 msgid "Updating Scene"
@@ -1898,7 +1904,7 @@ msgstr "ফাইল-ম্যানেজারে দেখুন"
 msgid "New Folder..."
 msgstr "ফোল্ডার তৈরি করুন"
 
-#: editor/editor_file_dialog.cpp
+#: editor/editor_file_dialog.cpp editor/find_in_files.cpp
 #: editor/plugins/version_control_editor_plugin.cpp
 msgid "Refresh"
 msgstr "রিফ্রেস করুন"
@@ -2066,13 +2072,28 @@ msgstr "গৃহীত হয়েছে:"
 
 #: editor/editor_help.cpp
 #, fuzzy
-msgid "Brief Description"
-msgstr "সংক্ষিপ্ত বর্ণনা:"
+msgid "Description"
+msgstr "বর্ণনা:"
+
+#: editor/editor_help.cpp
+#, fuzzy
+msgid "Online Tutorials"
+msgstr "টিউটোরিয়ালসমূহ"
 
 #: editor/editor_help.cpp
 #, fuzzy
 msgid "Properties"
 msgstr "প্রোপার্টি-সমূহ:"
+
+#: editor/editor_help.cpp
+#, fuzzy
+msgid "override:"
+msgstr "ওভাররাইড..."
+
+#: editor/editor_help.cpp
+#, fuzzy
+msgid "default:"
+msgstr "সাধারণ/ডিফল্ট"
 
 #: editor/editor_help.cpp
 #, fuzzy
@@ -2090,39 +2111,19 @@ msgid "Enumerations"
 msgstr "অ্যানিমেশনসমূহ"
 
 #: editor/editor_help.cpp
-msgid "enum  "
-msgstr "enum  "
-
-#: editor/editor_help.cpp
 #, fuzzy
 msgid "Constants"
 msgstr "ধ্রুবকসমূহ:"
 
 #: editor/editor_help.cpp
 #, fuzzy
-msgid "Class Description"
-msgstr "বর্ণনা:"
-
-#: editor/editor_help.cpp
-#, fuzzy
-msgid "Online Tutorials"
-msgstr "টিউটোরিয়ালসমূহ"
-
-#: editor/editor_help.cpp
-#, fuzzy
-msgid ""
-"There are currently no tutorials for this class, you can [color=$color][url="
-"$url]contribute one[/url][/color] or [color=$color][url=$url2]request one[/"
-"url][/color]."
-msgstr ""
-"এই মেথড সম্পর্কে বিস্তারিত তথ্য লিপিবদ্ধ করা হয়নি। অনুগ্রহ করে তথ্য প্রদানের মাধ্যমে "
-"সহায়তা করুন। তথ্য প্রদানের জন্য [color=$color][url=$url], [/url][/color] ফরম্যাট "
-"ব্যাবহার করুন !"
-
-#: editor/editor_help.cpp
-#, fuzzy
 msgid "Property Descriptions"
 msgstr "মান/প্রোপার্টির বর্ণনা:"
+
+#: editor/editor_help.cpp
+#, fuzzy
+msgid "(value)"
+msgstr "মান"
 
 #: editor/editor_help.cpp
 msgid ""
@@ -3130,8 +3131,13 @@ msgid "Q&A"
 msgstr "Q&A"
 
 #: editor/editor_node.cpp
-msgid "Issue Tracker"
-msgstr "ইস্যু ট্র্যাকার"
+#, fuzzy
+msgid "Report a Bug"
+msgstr "পুন-ইম্পোর্ট"
+
+#: editor/editor_node.cpp
+msgid "Send Docs Feedback"
+msgstr ""
 
 #: editor/editor_node.cpp editor/plugins/asset_library_editor_plugin.cpp
 msgid "Community"
@@ -4263,17 +4269,17 @@ msgid "Saving..."
 msgstr "সংরক্ষিত হচ্ছে..."
 
 #: editor/import_dock.cpp
+#, fuzzy
+msgid "%d Files"
+msgstr "ফাইল"
+
+#: editor/import_dock.cpp
 msgid "Set as Default for '%s'"
 msgstr "'%s' এর জন্য ডিফল্ট হিসাবে সেট করুন"
 
 #: editor/import_dock.cpp
 msgid "Clear Default for '%s'"
 msgstr "'%s' এর জন্য ডিফল্ট ক্লিয়ার  করুন"
-
-#: editor/import_dock.cpp
-#, fuzzy
-msgid " Files"
-msgstr "ফাইল"
 
 #: editor/import_dock.cpp
 #, fuzzy
@@ -4291,7 +4297,7 @@ msgid "Reimport"
 msgstr "পুন-ইম্পোর্ট"
 
 #: editor/import_dock.cpp
-msgid "Save scenes, re-import and restart"
+msgid "Save Scenes, Re-Import, and Restart"
 msgstr ""
 
 #: editor/import_dock.cpp
@@ -4325,10 +4331,6 @@ msgstr "এইরূপে সংরক্ষণ করুন..."
 #: editor/inspector_dock.cpp
 msgid "Copy Params"
 msgstr "মানসমূহ প্রতিলিপি/কপি করুন"
-
-#: editor/inspector_dock.cpp
-msgid "Paste Params"
-msgstr "মানসমূহ প্রতিলেপন/পেস্ট করুন"
 
 #: editor/inspector_dock.cpp
 #, fuzzy
@@ -4882,7 +4884,6 @@ msgid "Animation Tools"
 msgstr "অ্যানিমেশনের সরঞ্জামসমূহ"
 
 #: editor/plugins/animation_player_editor_plugin.cpp
-#: editor/plugins/canvas_item_editor_plugin.cpp
 msgid "Animation"
 msgstr "অ্যানিমেশন"
 
@@ -6036,6 +6037,11 @@ msgid "Auto Insert Key"
 msgstr "অ্যানিমেশনে (Anim) চাবি যোগ করুন"
 
 #: editor/plugins/canvas_item_editor_plugin.cpp
+#, fuzzy
+msgid "Animation Key and Pose Options"
+msgstr "অ্যানিমেশনের চাবি সন্নিবেশিত হয়েছে।"
+
+#: editor/plugins/canvas_item_editor_plugin.cpp
 msgid "Insert Key (Existing Tracks)"
 msgstr "চাবি সন্নিবেশ করুন (বিদ্যমান ট্র্যাক/পথসমূহ)"
 
@@ -6303,12 +6309,13 @@ msgid "Mesh is empty!"
 msgstr "মেসটি খালি!"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
-msgid "Create Static Trimesh Body"
-msgstr "স্থিত-ট্রাইমেস বডি গঠন করুন"
+#, fuzzy
+msgid "Couldn't create a Trimesh collision shape."
+msgstr "ট্রাইমেস কলিশ়ন সহোদর তৈরি করুন"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
-msgid "Create Static Convex Body"
-msgstr "স্থিত-কনভেক্স বডি গঠন করুন"
+msgid "Create Static Trimesh Body"
+msgstr "স্থিত-ট্রাইমেস বডি গঠন করুন"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
 msgid "This doesn't work on scene root!"
@@ -6320,12 +6327,30 @@ msgid "Create Trimesh Static Shape"
 msgstr "ট্রাইমেস আকার তৈরি করুন"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
-msgid "Failed creating shapes!"
+msgid "Can't create a single convex collision shape for the scene root."
+msgstr ""
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid "Couldn't create a single convex collision shape."
 msgstr ""
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
 #, fuzzy
-msgid "Create Convex Shape(s)"
+msgid "Create Single Convex Shape"
+msgstr "কনভেক্স আকার তৈরি করুন"
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid "Can't create multiple convex collision shapes for the scene root."
+msgstr ""
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+#, fuzzy
+msgid "Couldn't create any collision shapes."
+msgstr "ফোল্ডার তৈরী করা সম্ভব হয়নি।"
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+#, fuzzy
+msgid "Create Multiple Convex Shapes"
 msgstr "কনভেক্স আকার তৈরি করুন"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
@@ -6345,7 +6370,6 @@ msgid "No mesh to debug."
 msgstr ""
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
-#: editor/plugins/sprite_editor_plugin.cpp
 msgid "Model has no UV in this layer"
 msgstr ""
 
@@ -6378,17 +6402,55 @@ msgid "Create Trimesh Static Body"
 msgstr "স্থিত-ট্রাইমেস বডি তৈরি করুন"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid ""
+"Creates a StaticBody and assigns a polygon-based collision shape to it "
+"automatically.\n"
+"This is the most accurate (but slowest) option for collision detection."
+msgstr ""
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
 msgid "Create Trimesh Collision Sibling"
 msgstr "ট্রাইমেস কলিশ়ন সহোদর তৈরি করুন"
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid ""
+"Creates a polygon-based collision shape.\n"
+"This is the most accurate (but slowest) option for collision detection."
+msgstr ""
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
 #, fuzzy
-msgid "Create Convex Collision Sibling(s)"
+msgid "Create Single Convex Collision Sibling"
 msgstr "কনভেক্স কলিশ়ন সহোদর তৈরি করুন"
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid ""
+"Creates a single convex collision shape.\n"
+"This is the fastest (but least accurate) option for collision detection."
+msgstr ""
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+#, fuzzy
+msgid "Create Multiple Convex Collision Siblings"
+msgstr "কনভেক্স কলিশ়ন সহোদর তৈরি করুন"
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid ""
+"Creates a polygon-based collision shape.\n"
+"This is a performance middle-ground between the two above options."
+msgstr ""
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
 msgid "Create Outline Mesh..."
 msgstr "প্রান্তরেখা মেস তৈরি করুন..."
+
+#: editor/plugins/mesh_instance_editor_plugin.cpp
+msgid ""
+"Creates a static outline mesh. The outline mesh will have its normals "
+"flipped automatically.\n"
+"This can be used instead of the SpatialMaterial Grow property when using "
+"that property isn't possible."
+msgstr ""
 
 #: editor/plugins/mesh_instance_editor_plugin.cpp
 #, fuzzy
@@ -7298,14 +7360,6 @@ msgid "Open Godot online documentation."
 msgstr "রেফারেন্সের ডকুমেন্টেশনে খুঁজুন।"
 
 #: editor/plugins/script_editor_plugin.cpp
-msgid "Request Docs"
-msgstr ""
-
-#: editor/plugins/script_editor_plugin.cpp
-msgid "Help improve the Godot documentation by giving feedback."
-msgstr ""
-
-#: editor/plugins/script_editor_plugin.cpp
 msgid "Search the reference documentation."
 msgstr "রেফারেন্সের ডকুমেন্টেশনে খুঁজুন।"
 
@@ -7780,6 +7834,11 @@ msgstr "এই কাজটি করার জন্য একটি একক 
 
 #: editor/plugins/spatial_editor_plugin.cpp
 #, fuzzy
+msgid "Auto Orthogonal Enabled"
+msgstr "সমকোণীয় (Orthogonal)"
+
+#: editor/plugins/spatial_editor_plugin.cpp
+#, fuzzy
 msgid "Lock View Rotation"
 msgstr "তথ্য দেখুন"
 
@@ -7839,6 +7898,10 @@ msgid "Cinematic Preview"
 msgstr "মেস লাইব্রেরি তৈরি হচ্ছে"
 
 #: editor/plugins/spatial_editor_plugin.cpp
+msgid "Not available when using the GLES2 renderer."
+msgstr ""
+
+#: editor/plugins/spatial_editor_plugin.cpp
 msgid "Freelook Left"
 msgstr "বাম দিকে ফ্রিলুক করুন"
 
@@ -7875,15 +7938,15 @@ msgid "Freelook Slow Modifier"
 msgstr "ফ্রি লুক স্পিড মডিফায়ার"
 
 #: editor/plugins/spatial_editor_plugin.cpp
+#, fuzzy
+msgid "View Rotation Locked"
+msgstr "তথ্য দেখুন"
+
+#: editor/plugins/spatial_editor_plugin.cpp
 msgid ""
 "Note: The FPS value displayed is the editor's framerate.\n"
 "It cannot be used as a reliable indication of in-game performance."
 msgstr ""
-
-#: editor/plugins/spatial_editor_plugin.cpp
-#, fuzzy
-msgid "View Rotation Locked"
-msgstr "তথ্য দেখুন"
 
 #: editor/plugins/spatial_editor_plugin.cpp
 msgid "XForm Dialog"
@@ -9003,7 +9066,7 @@ msgstr "TileSet (টাইল-সেট)..."
 msgid "No VCS addons are available."
 msgstr ""
 
-#: editor/plugins/version_control_editor_plugin.cpp editor/rename_dialog.cpp
+#: editor/plugins/version_control_editor_plugin.cpp
 msgid "Error"
 msgstr "সমস্যা/ভুল"
 
@@ -10178,12 +10241,18 @@ msgstr "Tile Set এক্সপোর্ট করুন"
 
 #: editor/project_manager.cpp
 #, fuzzy
-msgid "The path does not exist."
+msgid "The path specified doesn't exist."
 msgstr "ফাইলটি বিদ্যমান নয়।"
 
 #: editor/project_manager.cpp
 #, fuzzy
-msgid "Invalid '.zip' project file, does not contain a 'project.godot' file."
+msgid "Error opening package file (it's not in ZIP format)."
+msgstr "জিপ ফরম্যাট খুঁজে পেতে ব্যার্থ, প্যাকেজ ফাইল ওপেন করা যায়নি।"
+
+#: editor/project_manager.cpp
+#, fuzzy
+msgid ""
+"Invalid \".zip\" project file; it doesn't contain a \"project.godot\" file."
 msgstr "এমন একটি ফোল্ডার বাছাই করুন যেখানে 'project.godot' নামে কোন ফাইল নেই।"
 
 #: editor/project_manager.cpp
@@ -10193,11 +10262,11 @@ msgstr "অনুগ্রহ করে প্রকল্পের ফোল্
 
 #: editor/project_manager.cpp
 #, fuzzy
-msgid "Please choose a 'project.godot' or '.zip' file."
+msgid "Please choose a \"project.godot\" or \".zip\" file."
 msgstr "অনুগ্রহ করে প্রকল্পের ফোল্ডারের বাইরে এক্সপোর্ট করুন!"
 
 #: editor/project_manager.cpp
-msgid "Directory already contains a Godot project."
+msgid "This directory already contains a Godot project."
 msgstr ""
 
 #: editor/project_manager.cpp
@@ -10489,6 +10558,13 @@ msgstr "সংযোগ..."
 msgid ""
 "You currently don't have any projects.\n"
 "Would you like to explore official example projects in the Asset Library?"
+msgstr ""
+
+#: editor/project_manager.cpp
+msgid ""
+"The search box filters projects by name and last path component.\n"
+"To filter projects by name and full path, the query must contain at least "
+"one `/` character."
 msgstr ""
 
 #: editor/project_settings_editor.cpp
@@ -10903,6 +10979,11 @@ msgstr ""
 
 #: editor/rename_dialog.cpp
 #, fuzzy
+msgid "Use Regular Expressions"
+msgstr "অভিব্যক্তি (Expression) পরিবর্তন করুন"
+
+#: editor/rename_dialog.cpp
+#, fuzzy
 msgid "Advanced Options"
 msgstr "অ্যানিমেশনের সিদ্ধান্তসমূহ"
 
@@ -10941,7 +11022,7 @@ msgid ""
 msgstr ""
 
 #: editor/rename_dialog.cpp
-msgid "Per Level counter"
+msgid "Per-level Counter"
 msgstr ""
 
 #: editor/rename_dialog.cpp
@@ -10973,11 +11054,6 @@ msgstr ""
 
 #: editor/rename_dialog.cpp
 #, fuzzy
-msgid "Regular Expressions"
-msgstr "অভিব্যক্তি (Expression) পরিবর্তন করুন"
-
-#: editor/rename_dialog.cpp
-#, fuzzy
 msgid "Post-Process"
 msgstr "প্রক্রিয়া-পরবর্তী স্ক্রিপ্ট:"
 
@@ -10986,11 +11062,11 @@ msgid "Keep"
 msgstr "রাখুন"
 
 #: editor/rename_dialog.cpp
-msgid "CamelCase to under_scored"
+msgid "PascalCase to snake_case"
 msgstr ""
 
 #: editor/rename_dialog.cpp
-msgid "under_scored to CamelCase"
+msgid "snake_case to PascalCase"
 msgstr ""
 
 #: editor/rename_dialog.cpp
@@ -11011,6 +11087,16 @@ msgstr "বড় হাতের অক্ষর"
 #, fuzzy
 msgid "Reset"
 msgstr "সম্প্রসারন/সংকোচন অপসারণ করুন (রিসেট জুম্)"
+
+#: editor/rename_dialog.cpp
+#, fuzzy
+msgid "Regular Expression Error"
+msgstr "অভিব্যক্তি (Expression) পরিবর্তন করুন"
+
+#: editor/rename_dialog.cpp
+#, fuzzy
+msgid "At character %s"
+msgstr "গ্রহনযোগ্য অক্ষরসমূহ:"
 
 #: editor/reparent_dialog.cpp editor/scene_tree_dock.cpp
 msgid "Reparent Node"
@@ -11515,7 +11601,7 @@ msgstr "সূচক/ইনডেক্স মানের অগ্রহনয
 
 #: editor/script_create_dialog.cpp
 #, fuzzy
-msgid "Script is valid."
+msgid "Script path/name is valid."
 msgstr "স্ক্রিপ্ট"
 
 #: editor/script_create_dialog.cpp
@@ -11542,6 +11628,12 @@ msgstr "বিদ্যমান স্ক্রিপ্ট লোড করু
 #, fuzzy
 msgid "Script file already exists."
 msgstr "'%s' অ্যাকশন ইতিমধ্যেই বিদ্যমান!"
+
+#: editor/script_create_dialog.cpp
+msgid ""
+"Note: Built-in scripts have some limitations and can't be edited using an "
+"external editor."
+msgstr ""
 
 #: editor/script_create_dialog.cpp
 #, fuzzy
@@ -11626,6 +11718,11 @@ msgstr "ভুল/সমস্যা-সমূহ লোড করুন"
 
 #: editor/script_editor_debugger.cpp
 #, fuzzy
+msgid "Video RAM"
+msgstr "ভিডিও মেমোরি"
+
+#: editor/script_editor_debugger.cpp
+#, fuzzy
 msgid "Skip Breakpoints"
 msgstr "বিন্দু অপসারণ করুন"
 
@@ -11675,8 +11772,9 @@ msgid "Total:"
 msgstr "সর্বমোট:"
 
 #: editor/script_editor_debugger.cpp
-msgid "Video Mem"
-msgstr "ভিডিও মেমোরি"
+#, fuzzy
+msgid "Export list to a CSV file"
+msgstr "প্রকল্প এক্সপোর্ট করুন"
 
 #: editor/script_editor_debugger.cpp
 msgid "Resource Path"
@@ -13086,6 +13184,11 @@ msgid ""
 "don't use them."
 msgstr ""
 
+#: scene/3d/collision_shape.cpp
+msgid ""
+"ConcavePolygonShape doesn't support RigidBody in another mode than static."
+msgstr ""
+
 #: scene/3d/cpu_particles.cpp
 msgid "Nothing is visible because no mesh has been assigned."
 msgstr ""
@@ -13351,6 +13454,10 @@ msgstr ""
 "আকার ধারণ করতে পারে। অন্যথায়, এটিকে একটি RenderTarget করুন এবং এর অভ্যন্তরীণ "
 "দৃশ্যাবলিকে (texture) দৃশ্যমান করতে কোনো নোডে হস্তান্তর করুন।"
 
+#: scene/main/viewport.cpp
+msgid "Viewport size must be greater than 0 to render anything."
+msgstr ""
+
 #: scene/resources/visual_shader_nodes.cpp
 #, fuzzy
 msgid "Invalid source for preview."
@@ -13381,6 +13488,36 @@ msgstr ""
 #: servers/visual/shader_language.cpp
 msgid "Constants cannot be modified."
 msgstr ""
+
+#~ msgid "Issue Tracker"
+#~ msgstr "ইস্যু ট্র্যাকার"
+
+#~ msgid "Replaced %d occurrence(s)."
+#~ msgstr "%d সংখ্যক সংঘটন প্রতিস্থাপিত হয়েছে  ।"
+
+#~ msgid "Create Static Convex Body"
+#~ msgstr "স্থিত-কনভেক্স বডি গঠন করুন"
+
+#, fuzzy
+#~ msgid ""
+#~ "There are currently no tutorials for this class, you can [color=$color]"
+#~ "[url=$url]contribute one[/url][/color] or [color=$color][url="
+#~ "$url2]request one[/url][/color]."
+#~ msgstr ""
+#~ "এই মেথড সম্পর্কে বিস্তারিত তথ্য লিপিবদ্ধ করা হয়নি। অনুগ্রহ করে তথ্য প্রদানের "
+#~ "মাধ্যমে সহায়তা করুন। তথ্য প্রদানের জন্য [color=$color][url=$url], [/url][/"
+#~ "color] ফরম্যাট ব্যাবহার করুন !"
+
+#~ msgid "enum  "
+#~ msgstr "enum  "
+
+#, fuzzy
+#~ msgid "Brief Description"
+#~ msgstr "সংক্ষিপ্ত বর্ণনা:"
+
+#, fuzzy
+#~ msgid "Class Description"
+#~ msgstr "বর্ণনা:"
 
 #~ msgid "Password:"
 #~ msgstr "পাসওয়ার্ড:"
